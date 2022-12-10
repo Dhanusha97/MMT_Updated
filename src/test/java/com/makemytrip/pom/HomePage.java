@@ -45,7 +45,7 @@ public class HomePage extends BaseClass {
 	@FindBy(xpath = "//span[text()='DEPARTURE']")
 	private WebElement departureDate;
 	
-	@FindBy(xpath = "//span[text()='DEPARTURE']")
+	@FindBy(xpath = "//span[text()='RETURN']")
 	private WebElement returnDate;
 
 	@FindBy(xpath = "//div[contains(@class,'dateFiled')][1]")
@@ -122,16 +122,16 @@ public class HomePage extends BaseClass {
 				break;
 			}
 		}
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 	}
 
 	public void enterReturnCity(String city) throws InterruptedException {
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		WebDriverWait wait=new WebDriverWait(driver, 10);
 		wait.until(ExpectedConditions.elementToBeClickable(toCity));
 		toCity.click();
 		enterToCity.sendKeys(city);
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		List<WebElement> suggestionToList2 = suggestionToList;
 		for (WebElement suggestion : suggestionToList2) {
 			if (suggestion.getText().contains(city)) {
@@ -148,17 +148,15 @@ public class HomePage extends BaseClass {
 		UtilFunctions date = UtilFunctions.getCurrentAndReturnDates();
 	//	driver.findElement(UtilFunctions.customXpath(departureDate, date.departureDate)).click();
 	}
-
+	
 	public void enterReturnDate() throws Exception {
-		//Thread.sleep(2000);
 		returnDate.click();
 		returnDrop.click();
-		
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//div[@role='gridcell' and @aria-selected='true' ])[2]")).click();
 		UtilFunctions date = UtilFunctions.getCurrentAndReturnDates();
 	//	driver.findElement(UtilFunctions.customXpath(returnDate, date.returnDate)).click();
 	}
-
 	/*
 	 * public FlightInfoPage search() { searchBtn.click();
 	 * driver.manage().deleteAllCookies(); return new FlightInfoPage(); }
