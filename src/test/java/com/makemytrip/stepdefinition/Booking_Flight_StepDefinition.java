@@ -38,7 +38,7 @@ public class Booking_Flight_StepDefinition extends BaseClass {
 	}
 
 	@When("^User click on radio button of selected flight$")
-	public void user_click_on_radio_button_of_selected_flight() throws Throwable {
+	public void user_click_on_the_selected_flight() throws Throwable {
 		test = extent.createTest("Book the flight");
 		test.assignCategory("Regression Test");
 
@@ -66,7 +66,7 @@ public class Booking_Flight_StepDefinition extends BaseClass {
 	}
 
 	@When("^User click on Book button for booking the same flight$")
-	public void user_click_on_Book_button_for_booking_the_same_flight() throws Throwable {
+	public void user_click_on_Book_button_for_booking_the_flight() throws Throwable {
 
 		try {
 			pageLoadWait();
